@@ -2,65 +2,25 @@
 <html>
 <head>
   <title>Form Validation</title>
-  <script>
-    function validateEmail(email) {
-      var pattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-      return pattern.test(email);
-    }
-
-    function validatePhoneNumber(phoneNumber) {
-      var pattern = /^\(\d{3}\) \d{3}-\d{4}$/;
-      return pattern.test(phoneNumber);
-    }
-
-    function validatePostCode(postCode) {
-      var pattern = /^\d{4}$/;
-      return pattern.test(postCode);
-    }
-
-    function validateInput() {
-      var option = document.getElementById("option").value;
-      var userInput = document.getElementById("userInput").value;
-
-      var result = "";
-      if (option === "1") {
-        if (validateEmail(userInput)) {
-          result = "Valid email address!";
-        } else {
-          result = "Invalid email address!";
-        }
-      } else if (option === "2") {
-        if (validatePhoneNumber(userInput)) {
-          result = "Valid phone number!";
-        } else {
-          result = "Invalid phone number!";
-        }
-      } else if (option === "3") {
-        if (validatePostCode(userInput)) {
-          result = "Valid post code!";
-        } else {
-          result = "Invalid post code!";
-        }
-      }
-
-      document.getElementById("result").innerHTML = result;
-    }
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <h1>Form Validation</h1>
+  <h1 class="">Form Validation</h1>
   <label for="option">Select an option:</label>
-  <select id="option">
+  <select id="option" onchange="updatePlaceholder()">
     <option value="1">Email</option>
     <option value="2">Phone Number</option>
     <option value="3">Post Code</option>
+    <option value="4">Password</option>
   </select>
   <br>
   <label for="userInput">Enter your input:</label>
-  <input type="text" id="userInput">
+  <input class="u-full-width" placeholder="example@email.com" type="text" id="userInput">
   <br>
-  <button onclick="validateInput()">Validate</button>
+  <button class="button-primary" onclick="validateInput()">Validate</button>
   <br>
   <p id="result"></p>
+
+  <script src="./script.js"></script>
 </body>
 </html>
